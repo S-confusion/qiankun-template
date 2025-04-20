@@ -19,8 +19,10 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  base: qiankunWindow.__POWERED_BY_QIANKUN__ ? "/micro-app-vue" : "/",
+  history: createWebHistory(import.meta.env.VITE_APP_BASE_URL),
+  base: qiankunWindow.__POWERED_BY_QIANKUN__
+    ? import.meta.env.VITE_APP_BASE_URL
+    : "/",
   routes,
 });
 

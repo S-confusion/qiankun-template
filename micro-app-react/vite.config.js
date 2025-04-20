@@ -3,12 +3,13 @@ import { fileURLToPath, URL } from "node:url";
 // import react from "@vitejs/plugin-react";
 import qiankun from "vite-plugin-qiankun";
 // https://vite.dev/config/   {mode}
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
+  // const env = loadEnv(mode, process.cwd());
   return {
-    // base: mode === "development" ? env.VITE_APP_BASE_URL : "/",
+    // base: mode === "micro" ? env.VITE_APP_BASE_URL : "/",
     base: "/micro-app-react",
     plugins: [
-      // react({ fastRefresh: false }),
+      // react({ fastRefresh: false }),//
       // 微应用名字，与主应用注册的微应用名字保持一致
       qiankun("MicroAppReact", {
         // 如果是在主应用中加载子应用vite,必须打开这个,否则vite加载不成功, 单独运行没影响
