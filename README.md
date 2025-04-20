@@ -30,6 +30,7 @@ if (!qiankunWindow.__POWERED_BY_QIANKUN__) {
 
 疑问待解决:
 1、setGlobalState更新部分变量的写法
+2、vite创建的react项目，vite.config.js中使用process报错
 
 
 实现目标：
