@@ -27,3 +27,11 @@ if (!qiankunWindow.__POWERED_BY_QIANKUN__) {
 }
 从vite-plugin-qiankun中引入qiankunWindow再去判断环境
 
+
+疑问待解决:
+1、setGlobalState更新部分变量的写法
+
+
+实现目标：
+主应用登录，主应用记录登录状态并持久化存储，主应用监听登录状态
+子应用监听登录状态，子应用控制登录状态，子应用退出登录
