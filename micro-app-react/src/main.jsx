@@ -24,6 +24,8 @@ function render(props) {
 
 renderWithQiankun({
   mount(props) {
+    console.log("mount", props);
+
     render(props);
   },
   bootstrap() {},

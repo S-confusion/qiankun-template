@@ -1,24 +1,14 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import App from "./App.vue";
 import "./style.css";
-import { registerMicroApps, setDefaultMountApp, start } from "qiankun";
+import { start } from "./qiankun";
 
-registerMicroApps([
-  {
-    name: "MicroAppVue",
-    entry: "http://localhost:9001/micro-app-vue/",
-    container: "#microApp",
-    activeRule: "/micro-app-vue",
-  },
-  {
-    name: "MicroAppReact",
-    entry: "http://localhost:9002/micro-app-react/",
-    container: "#microApp",
-    activeRule: "/micro-app-react",
-  },
-]);
+const app = createApp(App);
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
+app.use(pinia);
 
-setDefaultMountApp("/micro-app-react");
 start();
-
-createApp(App).mount("#app");
+app.mount("#app");

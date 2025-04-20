@@ -2,12 +2,13 @@ import { defineConfig, loadEnv } from "vite";
 import { fileURLToPath, URL } from "node:url";
 // import react from "@vitejs/plugin-react";
 import qiankun from "vite-plugin-qiankun";
+import path from "path";
 // https://vite.dev/config/   {mode}
-export default defineConfig(() => {
-  // const env = loadEnv(mode, process.cwd());
+export default defineConfig(({ mode }) => {
+  // const env = loadEnv(mode, process.cwd());//process报错，未查明
+  const env = loadEnv(mode, path.resolve());
   return {
-    // base: mode === "micro" ? env.VITE_APP_BASE_URL : "/",
-    base: "/micro-app-react",
+    base: mode === "micro" ? env.VITE_APP_BASE_URL : "/",
     plugins: [
       // react({ fastRefresh: false }),//
       // 微应用名字，与主应用注册的微应用名字保持一致
